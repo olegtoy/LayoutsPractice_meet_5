@@ -3,6 +3,7 @@ package com.practice.olegtojgildin.layoutspractice_meet_5;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    TextView textViewConstraint1;
+    TextView textViewConstraint2;
+
     public void initviews() {
         textViewsRelative.add((TextView)findViewById(R.id.textview_relative1));
         textViewsRelative.add((TextView)findViewById(R.id.textview_relative2));
@@ -51,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         textViewsRelative.add((TextView)findViewById(R.id.textview_relative7));
         textViewsRelative.add((TextView)findViewById(R.id.textview_relative8));
         textViewsRelative.add((TextView)findViewById(R.id.textview_relative9));
+
+        textViewConstraint1=findViewById(R.id.firstText);
+        textViewConstraint2=findViewById(R.id.secondText);
+
 
     }
     @Override
@@ -114,11 +122,23 @@ public class MainActivity extends AppCompatActivity {
 
             switch (msg.what) {
                 case MyService.MESSAGE_INFO:
+                {
                     for (TextView textView:textViewsRelative)
-                    textView.setText(msg.obj.toString());
+                        textView.setText(msg.obj.toString());
+                    textViewConstraint1.setText(msg.obj.toString());
+                    textViewConstraint2.setText(msg.obj.toString());
+                    changeAngleForClock(msg);
                     break;
+                }
+
 
             }
+        }
+
+        private void changeAngleForClock(Message msg){
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) textViewConstraint2.getLayoutParams();
+            layoutParams.circleAngle =Integer.parseInt(msg.obj.toString())*10%360;
+            textViewConstraint2.setLayoutParams(layoutParams);
         }
     }
 }
