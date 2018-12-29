@@ -8,8 +8,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -18,14 +16,12 @@ import java.util.concurrent.TimeUnit;
  * Created by olegtojgildin on 28/12/2018.
  */
 
-
 public class MyService extends Service {
 
     public static final int MESSAGE_REGISTER_CLIENT = 0;
     public static final int MESSAGE_UNREGISTER_CLIENT = 1;
     public static final int MESSAGE_INFO = 3;
     public static final int MESSAGE_SET_VALUE = 4;
-private boolean isBind;
     private List<Messenger> mClient=new ArrayList<Messenger>();
     private Messenger mMessenger = new Messenger(new IncomingHandler());
 

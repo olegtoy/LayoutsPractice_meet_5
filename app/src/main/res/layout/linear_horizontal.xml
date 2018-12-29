@@ -5,20 +5,23 @@
     android:orientation="horizontal"
     android:background="@color/coloryell">
     <TextView
-        android:id="@+id/textview1"
+        android:id="@+id/textview1_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="textview1"/>
+        android:textSize="40sp"
+        android:layout_gravity="center"/>
     <TextView
-        android:id="@+id/textview2"
+        android:id="@+id/textview2_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="textview2"/>
+        android:textSize="40sp"
+        android:layout_gravity="center"/>
     <TextView
-        android:id="@+id/textview3"
+        android:id="@+id/textview3_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="textview3"/>
+        android:textSize="40sp"
+        android:layout_gravity="center"/>
 
 
 
